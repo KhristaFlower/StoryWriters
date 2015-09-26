@@ -40,23 +40,26 @@
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         @if (Auth::check())
-                            <?php
-                                $users = User::all();
-                            ?>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    SA <b class="caret"></b>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    @foreach($users as $user)
-                                        @if($user->id == Auth::user()->id)
-                                            <li class="disabled"><a href="#">{{ $user->username }}</a></li>
-                                        @else
-                                            <li>{{ $user->become() }}</li>
-                                        @endif
-                                    @endforeach
-                                </ul>
-                            </li>
+                            @if (false)
+                                {{-- TODO: Convert this to environments, it is useful on dev but bad on production --}}
+                                <?php
+                                    $users = User::all();
+                                ?>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                        SA <b class="caret"></b>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        @foreach($users as $user)
+                                            @if($user->id == Auth::user()->id)
+                                                <li class="disabled"><a href="#">{{ $user->username }}</a></li>
+                                            @else
+                                                <li>{{ $user->become() }}</li>
+                                            @endif
+                                        @endforeach
+                                    </ul>
+                                </li>
+                            @endif
 
                             <p class="navbar-text">
                                 <a href="{{ URL::route('profile.index') }}">Logged in as {{ Auth::user()->username }}</a>
