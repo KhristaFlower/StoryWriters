@@ -18,6 +18,7 @@ class CreateInitialTables extends Migration {
             $table->string('email', 255)->unique();
             $table->string('password', 60);
             $table->integer('status', false, true); // 0 Good Standing, 10 Banned
+            $table->string('remember_token', 100)->nullable();
             $table->timestamps();
         });
 
