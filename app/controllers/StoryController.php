@@ -54,6 +54,7 @@ class StoryController extends BaseController
         $creator = Auth::user();
         $input['user_id'] = $creator->id;
         $input['status'] = 1;
+        $input['current_writer'] = $creator->id;
 
         $story = Story::create($input);
 
