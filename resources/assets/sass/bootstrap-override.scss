@@ -1,0 +1,57 @@
+// Alter the main navigation bar to use colours set by our theme
+.navbar-default {
+  background-color: #FFF;
+  box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+
+  .navbar-nav {
+    .active > a, .active > a:hover {
+      color: darken($theme, 10%);
+      background-color: #F4F4F4;
+    }
+
+    li > a {
+      color: darken($theme, 0%);
+    }
+
+    li.disabled > a {
+      color: $dropdown-link-disabled-color;
+    }
+  }
+}
+
+// Alter the primary page heading component to match our theme.
+.jumbotron {
+  background-image: url("/img/sw_pattern.png");
+  margin-bottom: 0;
+
+  h1 {
+    line-height: 1em;
+    font-weight: bold;
+    font-size: 75px;
+    @include shadow($theme, 3);
+  }
+
+  p {
+    color: darken($theme, 20%);
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, .3px);
+  }
+}
+
+// Change form input focus glow colours to match our theme.
+.form-control:focus {
+  $rgbA: rgba(red($theme), green($theme), blue($theme), 0.6);
+  $rgbB: rgba(red($theme), green($theme), blue($theme), 0.075);
+  border-color: $theme;
+  box-shadow: 0 1px 1px $rgbB inset, 0 0 8px $rgbA;
+  outline: 0 none;
+}
+
+.alert-default {
+  background: desaturate($alert-info-bg, 100%);
+  border-color: desaturate($alert-info-border, 100%);
+  color: desaturate($alert-info-text, 100%);
+}
+
+.alert-flash {
+  margin-top: 20px;
+}

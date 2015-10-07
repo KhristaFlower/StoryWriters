@@ -1,2 +1,175 @@
-// @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+// The below file can be obtained by running 'npm install'.
+@import "../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
+$theme: #008FBF;
+
+@import "mixins";
+@import "bootstrap-override";
+
+//-----------------------------------------------------------------------------
+// Page Layout
+//-----------------------------------------------------------------------------
+
+body {
+  position: relative;
+  z-index: 0;
+  background: #333 url("/img/scratches.png") repeat fixed;
+
+  .wrapper {
+    position: relative;
+    z-index: 1;
+    background-color: #FFF;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+  }
+
+  .sub-wrapper {
+    padding-top: 30px;
+    padding-bottom: 50px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+  }
+}
+
+body .wrapper .nav-clearance {
+  padding-top: 50px;
+}
+
+footer {
+  position: relative;
+  z-index: -3;
+
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  height: 200px;
+
+  .static-center {
+    position: fixed;
+    z-index: -1;
+    bottom: 0;
+    width: 100%;
+
+    .container {
+      margin: 0 auto;
+      font-size: 10px;
+      text-align: center;
+      padding: 50px 0;
+      color: #999;
+    }
+  }
+}
+
+//-----------------------------------------------------------------------------
+// Corrective CSS
+//-----------------------------------------------------------------------------
+
+// Offset all fixed headings so that they don't go under the fixed nav-bar.
+h1, h2, h3, h4, h5, h6 {
+  position: relative;
+  & span {
+    position: absolute;
+    top: -60px;
+  }
+}
+
+// Fix some odd display with margins in a compact form.
+.form-group.compact-form {
+  margin: 0;
+}
+
+// Remove the margin at the top of the first flash message under the jumbotron.
+.wrapper .container .alert-flash:first-of-type {
+  margin-top: 0;
+}
+
+// Put some space between columns in bootstrap so they aren't cramped
+// when collapsing down.
+.row.space {
+  & > div[class*='col-'] {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}
+
+//-----------------------------------------------------------------------------
+// Custom CSS
+//-----------------------------------------------------------------------------
+
+.callout {
+  margin: 20px 0;
+  padding: 20px;
+  border-left: 3px solid rgba(0, 0, 0, .2);
+
+  & *:first-child {
+    margin-top: 0;
+  }
+}
+
+.bg-default {
+  background: #EEE;
+}
+
+.bg-theme {
+  background: lighten(desaturate($theme, 50%), 30%);
+}
+
+// Story segments styling.
+.story-segment {
+  &:hover {
+    background: #FF0;
+    padding: 2px 0;
+  }
+}
+
+// Story block used for displaying a preview of a story.
+.story-block {
+  border-radius: 10px;
+  background: #EEE;
+  padding: 10px;
+  margin-bottom: 20px;
+
+  .title {
+    font-size: 16px;
+  }
+
+  .pair {
+    .key {
+      color: #999;
+    }
+  }
+
+  .showmore {
+    display: block;
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  a {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+// Used for pages that only contain forms, eg: login and register.
+.form-mini {
+  max-width: 330px;
+  padding: 15px;
+  background: #F9F9F9;
+  border: 1px solid #EEE;
+  border-radius: 6px;
+  margin: 20px auto;
+
+  h2 {
+    margin-top: 0;
+  }
+
+  .form-group:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+// Used to display small error messages under input fields.
+form > span.error, .error {
+  color: #C00;
+  font-style: italic;
+  font-size: small;
+}
