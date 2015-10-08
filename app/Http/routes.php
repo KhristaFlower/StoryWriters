@@ -37,6 +37,7 @@ Route::group(['prefix' => 'account'], function() {
 
 Route::get('stories', ['as' => 'stories', 'uses' => 'PagesController@getAbout']);
 Route::get('writers', ['as' => 'writers', 'uses' => 'PagesController@getAbout']);
+Route::get('profile', ['as' => 'profile', 'uses' => 'AccountController@profile']);
 //Route::get('auth/logout', ['as' => 'logout', 'uses' => 'PagesController@getAbout']);
 //Route::get('auth/login', ['as' => 'login', 'uses' => 'PagesController@getAbout']);
 //Route::get('auth/register', ['as' => 'register', 'uses' => 'PagesController@getAbout']);

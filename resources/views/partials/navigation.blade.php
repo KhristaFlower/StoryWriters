@@ -48,14 +48,12 @@
                         </li>
                     @endif
 
-                    <p class="navbar-text">
-                        <a href="{{ URL::route('profile.index') }}">Logged in as {{ Auth::user()->username }}</a>
-                    </p>
-                    <li>{!! Html::link('/logout', 'Logout') !!}</li>
+                    <li>
+                        <a href="{{ URL::route('profile') }}">Logged in as {{ Auth::user()->username }}</a>
+                    </li>
+                    <li>{!! link_to_route('logout', 'Logout') !!}</li>
                 @else
                     <li @if ($nav == 'Login') {!! 'class="active"' !!} @endif>{!! link_to_route('login', 'Login') !!}</li>
-                    {{--<li @if ($nav == 'Register') {{ 'class="active"' }} @endif>{!! Html::link('/register', 'Register') !!}</li>--}}
-                    {{--<li @if ($nav == 'Register') {{ 'class="active"' }} @endif>{!! Html::route('accountregister') !!}</li>--}}
                     <li @if ($nav == 'Register') {!! 'class="active"' !!} @endif>{!! link_to_route('register', 'Register') !!}</li>
                 @endif
             </ul>

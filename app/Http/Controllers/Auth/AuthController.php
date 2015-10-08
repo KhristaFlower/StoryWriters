@@ -24,6 +24,20 @@ class AuthController extends Controller
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
 
     /**
+     * This is the location to redirect the user to once they have logged in or registered.
+     *
+     * @var string
+     */
+    protected $redirectPath = '/profile';
+
+    /**
+     * Laravel's authentication will use the email field unless overridden.
+     *
+     * @var string
+     */
+    protected $username = 'username';
+
+    /**
      * Create a new user registration page.
      *
      * @return \Illuminate\View\View
@@ -31,6 +45,17 @@ class AuthController extends Controller
     public function getRegister() {
         return view('auth.register', [
             'nav' => 'Register'
+        ]);
+    }
+
+    /**
+     * Create a login page.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function getLogin() {
+        return view('auth.login', [
+            'nav' => 'Login'
         ]);
     }
 
@@ -53,7 +78,7 @@ class AuthController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'username' => 'required|max:255',
+            'username' => 'required|max:255|unique:users',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|confirmed|min:6',
         ]);

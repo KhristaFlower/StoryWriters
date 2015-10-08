@@ -4,7 +4,9 @@
     <div class="nav-clearance">
         @include('partials.navigation')
         <div class="sub-wrapper">
-            @yield('content')
+            <div class="container">
+                @yield('content')
+            </div>
         </div>
     </div>
 @endsection

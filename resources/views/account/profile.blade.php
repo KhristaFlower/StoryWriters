@@ -2,8 +2,10 @@
 
 @section('content')
 
-    <div class="form-mini">
-        @yield('form')
-    </div>
+    <h1>Profile</h1>
+
+    <p>
+        Temporary page.
+    </p>
 
 @endsection

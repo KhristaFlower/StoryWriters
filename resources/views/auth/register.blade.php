@@ -1,10 +1,10 @@
-@extends('layouts.primary')
+@extends('layouts.form')
 
-@section('content')
-
-    {!! Form::open(['route' => 'register', 'method' => 'post', 'class' => 'form-mini']) !!}
+@section('form')
 
     <h2>Create Account</h2>
+
+    {!! Form::open(['route' => 'register', 'method' => 'post']) !!}
 
     <div class="form-group">
         {!! Form::label('username', 'Username') !!}

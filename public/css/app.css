@@ -6031,7 +6031,8 @@ button.close {
 body {
   position: relative;
   z-index: 0;
-  background: #333 url("/img/scratches.png") repeat fixed; }
+  background: #333 url("/img/scratches.png") repeat fixed;
+  box-shadow: 0 0 30px #000; }
   body .wrapper {
     position: relative;
     z-index: 1;
